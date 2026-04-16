@@ -1,0 +1,8 @@
+.DS_Store
+*.p8
+*.p12
+*.jpg
+*.png
+*.jpeg
+Runner.app/
+Runner.xcarchive/

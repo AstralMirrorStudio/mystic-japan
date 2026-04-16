@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mystic Japan — Urban Legend Travel Guide</title>
+<meta name="description" content="Navigate Japan's most mysterious locations. 120+ urban legends, haunted shrines, cursed warlords, and ancient mysteries — GPS-guided tours across all 47 prefectures.">
+<meta property="og:title" content="Mystic Japan — Urban Legend Travel Guide">
+<meta property="og:description" content="120+ mystery locations across all 47 prefectures. Dark maps, eeriness ratings, and GPS check-ins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080810;--bg2:#0d0d1a;--bg3:#111120;
+  --gold:#c9a84c;--gold2:#e8c96a;--gdim:#7a6230;
+  --red:#7a1515;--w:#ece8e0;--g:#5a5a72;--g2:#2a2a40;
+  --fd:'Cinzel',serif;--fb:'Cormorant Garamond',serif;--fj:'Noto Serif JP',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--w);font-family:var(--fb);font-size:18px;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.45}
+
+/* LANG */
+.lb{position:fixed;top:0;right:0;z-index:1000;display:flex;padding:14px 20px;background:linear-gradient(to left,rgba(8,8,16,.92),transparent)}
+.lb button{background:none;border:none;color:var(--g);font-family:var(--fd);font-size:10px;letter-spacing:2px;cursor:pointer;padding:6px 9px;transition:color .3s;text-transform:uppercase}
+.lb button:hover,.lb button.a{color:var(--gold)}
+.lb button+button{border-left:1px solid var(--g2)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 24px 80px;text-align:center}
+.hglow{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:680px;height:680px;background:radial-gradient(ellipse,rgba(130,55,18,.15) 0%,rgba(80,15,15,.08) 45%,transparent 70%);pointer-events:none}
+.htorii{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(860px,100%);height:280px;pointer-events:none;opacity:.16}
+.eyebrow{font-family:var(--fj);font-size:12px;letter-spacing:7px;color:var(--gdim);margin-bottom:22px;text-transform:uppercase;animation:fu .9s ease both}
+.htitle{font-family:var(--fd);font-size:clamp(50px,9.5vw,108px);font-weight:700;letter-spacing:.14em;line-height:.92;animation:fu .9s .12s ease both}
+.htitle em{color:var(--gold);font-style:normal;display:block}
+.hjp{font-family:var(--fj);font-size:13px;letter-spacing:8px;color:var(--g);margin:18px 0 30px;animation:fu .9s .22s ease both}
+.hsub{font-family:var(--fb);font-style:italic;font-size:clamp(17px,2.6vw,23px);color:rgba(236,232,224,.68);max-width:580px;margin:0 auto 50px;animation:fu .9s .32s ease both}
+.hcta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fu .9s .46s ease both}
+.bp{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--bg);font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-decoration:none;padding:17px 32px;border-radius:2px;transition:all .3s;text-transform:uppercase}
+.bp:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 14px 40px rgba(201,168,76,.26)}
+.bs{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--gold);font-family:var(--fd);font-size:12px;letter-spacing:3px;text-decoration:none;padding:17px 32px;border:1px solid var(--gdim);border-radius:2px;transition:all .3s;text-transform:uppercase}
+.bs:hover{border-color:var(--gold);background:rgba(201,168,76,.06)}
+.hscr{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fu .9s 1s ease both}
+.hscr span{font-family:var(--fd);font-size:8px;letter-spacing:4px;color:var(--g)}
+.sline{width:1px;height:38px;background:linear-gradient(to bottom,var(--gdim),transparent);animation:pl 2s infinite}
+
+/* STATS */
+.stats{background:var(--bg2);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);padding:36px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;text-align:center}
+.sn{font-family:var(--fd);font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px}
+.sl{font-family:var(--fb);font-style:italic;font-size:14px;color:var(--g)}
+
+/* SECTION */
+section{padding:96px 24px}
+.inn{max-width:1160px;margin:0 auto}
+.seye{font-family:var(--fd);font-size:10px;letter-spacing:5px;color:var(--gdim);text-transform:uppercase;margin-bottom:14px}
+.stit{font-family:var(--fd);font-size:clamp(26px,5vw,50px);font-weight:700;line-height:1.15;margin-bottom:18px}
+.stit em{color:var(--gold);font-style:normal}
+.sbod{font-size:clamp(16px,2vw,19px);color:rgba(236,232,224,.72);max-width:540px;line-height:1.8}
+
+/* FEATURES */
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:2px;margin-top:58px;border:1px solid var(--g2)}
+.fc{background:var(--bg2);padding:42px 30px;position:relative;overflow:hidden;transition:background .35s}
+.fc:hover{background:var(--bg3)}
+.fc::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .4s}
+.fc:hover::before{height:100%}
+.fci{font-size:28px;margin-bottom:18px;display:block}
+.fct{font-family:var(--fd);font-size:12px;letter-spacing:2px;color:var(--gold);margin-bottom:10px;text-transform:uppercase}
+.fcb{font-size:14px;color:rgba(236,232,224,.62);line-height:1.7}
+
+/* SCREENSHOTS */
+.ss{background:var(--bg2);overflow:hidden}
+.ss-i{max-width:1160px;margin:0 auto}
+.si{max-width:560px;margin-bottom:60px}
+.pr{display:flex;gap:18px;align-items:flex-end;overflow-x:auto;padding-bottom:24px;scrollbar-width:none}
+.pr::-webkit-scrollbar{display:none}
+.pw{flex:0 0 auto;width:195px;transition:transform .4s}
+.pw:nth-child(2){transform:translateY(-18px)}
+.pw:nth-child(3){transform:translateY(-38px)}
+.pw:nth-child(4){transform:translateY(-20px)}
+.pw:nth-child(5){transform:translateY(-8px)}
+.pw:hover{transform:translateY(-54px)!important}
+.pf{width:100%;aspect-ratio:390/844;background:var(--bg3);border-radius:30px;border:1px solid var(--g2);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.62),0 0 0 1px rgba(201,168,76,.05)}
+.pf img{width:100%;height:100%;object-fit:cover;display:block}
+.pc{margin-top:12px;font-family:var(--fd);font-size:8px;letter-spacing:2px;color:var(--g);text-align:center;text-transform:uppercase}
+
+/* EERINESS */
+.ee{background:var(--bg3)}
+.eei{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:768px){.eei{grid-template-columns:1fr;gap:48px}}
+.md{background:var(--bg2);border:1px solid var(--g2);border-radius:4px;padding:38px}
+.ms{font-family:var(--fd);font-size:12px;letter-spacing:2px;color:var(--gold);margin-bottom:5px;text-transform:uppercase}
+.mj{font-family:var(--fj);font-size:11px;color:var(--g);margin-bottom:26px}
+.mr{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.ml{width:90px;font-size:12px;color:var(--g);flex-shrink:0}
+.mt{flex:1;height:8px;background:var(--g2);border-radius:4px;overflow:hidden}
+.mb{height:100%;border-radius:4px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
+.be{background:linear-gradient(90deg,#a01818,#e03030)}
+.bd{background:linear-gradient(90deg,#b07010,#e8a020)}
+.bh{background:linear-gradient(90deg,#7a6230,#c9a84c)}
+.mv{width:28px;text-align:right;font-family:var(--fd);font-size:12px;color:var(--gold)}
+.nb{display:inline-flex;align-items:center;gap:6px;margin-top:18px;padding:5px 14px;background:rgba(120,20,20,.28);border:1px solid rgba(160,28,28,.45);border-radius:20px;font-size:11px;color:#e05555;font-family:var(--fd);letter-spacing:1px}
+
+/* SPOTS */
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:2px;margin-top:50px}
+.sc{background:var(--bg2);padding:28px;transition:background .3s;position:relative}
+.sc:hover{background:var(--bg3)}
+.scp{font-family:var(--fd);font-size:9px;letter-spacing:4px;color:var(--gdim);text-transform:uppercase;margin-bottom:9px}
+.scn{font-family:var(--fd);font-size:14px;line-height:1.4;margin-bottom:5px}
+.scj{font-family:var(--fj);font-size:11px;color:var(--g);margin-bottom:11px}
+.scd{font-size:13px;color:rgba(236,232,224,.58);line-height:1.6;margin-bottom:12px}
+.scm{font-size:12px;color:var(--g)}
+.slk{position:absolute;top:14px;right:14px;font-size:13px;opacity:.44}
+
+/* PRICING */
+.ps{background:var(--bg2);text-align:center}
+.pi{max-width:530px;margin:0 auto}
+.pc2{background:var(--bg);border:1px solid var(--gdim);border-radius:4px;padding:50px 42px;margin-top:50px;position:relative;overflow:hidden}
+.pc2::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gdim),var(--gold),var(--gdim))}
+.pbg{display:inline-block;background:var(--red);color:var(--w);font-family:var(--fd);font-size:9px;letter-spacing:3px;padding:4px 14px;border-radius:2px;margin-bottom:22px;text-transform:uppercase}
+.pn{font-family:var(--fd);font-size:66px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px}
+.pno{font-size:13px;color:var(--g);font-style:italic;margin-bottom:30px}
+.pf2{list-style:none;text-align:left;margin-bottom:34px}
+.pf2 li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--g2);font-size:15px;color:rgba(236,232,224,.78)}
+.pf2 li:last-child{border-bottom:none}
+.pf2 li::before{content:'✦';color:var(--gold);flex-shrink:0;margin-top:3px}
+
+/* UJ */
+.uj{background:var(--bg)}
+.uji{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:72px;align-items:center}
+@media(max-width:768px){.uji{grid-template-columns:1fr;gap:36px}}
+.ujv{background:var(--bg2);border:1px solid var(--g2);border-radius:4px;width:230px;aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;flex-shrink:0}
+.ujp{width:58px;height:58px;background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:transform .2s}
+.ujp:hover{transform:scale(1.1)}
+.ujc{font-family:var(--fd);font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.ujt{font-family:var(--fj);font-size:11px;color:var(--g);text-align:center;line-height:1.8}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--g2);padding:50px 24px 34px;text-align:center}
+.fl{font-family:var(--fd);font-size:17px;letter-spacing:6px;color:var(--gold);margin-bottom:5px}
+.fj2{font-family:var(--fj);font-size:11px;color:var(--g);letter-spacing:4px;margin-bottom:26px}
+.fn{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.fn a{font-family:var(--fd);font-size:9px;letter-spacing:2px;color:var(--g);text-decoration:none;text-transform:uppercase;transition:color .3s}
+.fn a:hover{color:var(--gold)}
+.fc2{font-size:11px;color:var(--g2)}
+
+/* DIVIDER */
+.dv{display:flex;align-items:center;gap:12px;max-width:160px;margin:0 auto 36px}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:var(--g2)}
+.dv span{color:var(--gold);font-size:11px}
+
+/* ANIM */
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pl{0%,100%{opacity:.3}50%{opacity:1}}
+.rv{opacity:1;transform:translateY(0)}
+
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* LANG */
+[data-lang]{display:none}[data-lang].on{display:block}span[data-lang].on{display:inline}
+
+@media(max-width:768px){
+  section{padding:70px 20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr}
+  .pw{width:148px}
+  .pc2{padding:34px 22px}
+  .ujv{width:170px}
+}
+</style>
+</head>
+<body>
+
+<nav class="lb">
+  <button class="a" onclick="setLang('en')">EN</button>
+  <button onclick="setLang('ja')">日本語</button>
+  <button onclick="setLang('es')">ES</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hglow"></div>
+  <svg class="htorii" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#c9a84c" stroke-width="1.8" fill="none">
+      <rect x="132" y="55" width="19" height="225" fill="#080810"/>
+      <rect x="749" y="55" width="19" height="225" fill="#080810"/>
+      <rect x="82" y="55" width="736" height="21" rx="5" fill="#080810"/>
+      <rect x="110" y="94" width="680" height="14" rx="4" fill="#080810"/>
+      <rect x="48" y="47" width="44" height="32" rx="4" fill="#080810"/>
+      <rect x="808" y="47" width="44" height="32" rx="4" fill="#080810"/>
+    </g>
+  </svg>
+
+  <p class="eyebrow"><span data-lang="en" class="on">Discover the Hidden Japan</span><span data-lang="ja">隠された日本を発見する</span><span data-lang="es">Descubre el Japón Oculto</span></p>
+  <h1 class="htitle">MYSTIC<em>JAPAN</em></h1>
+  <p class="hjp">神秘の日本 · ミスティック・ジャパン</p>
+  <p class="hsub">
+    <span data-lang="en" class="on">For travellers who look beyond the guidebook — cursed warlords, forbidden mountains, ancient mysteries hidden in plain sight across all 47 prefectures.</span>
+    <span data-lang="ja">ガイドブックの外を見る旅人へ。呪われた武将、禁断の山、47都道府県に潜む古代の謎。</span>
+    <span data-lang="es">Para viajeros que miran más allá de la guía — señores feudales malditos, montañas prohibidas, misterios antiguos ocultos a la vista en las 47 prefecturas.</span>
+  </p>
+  <div class="hcta">
+    <a href="https://apps.apple.com/app/id6761999617" class="bp">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-lang="en" class="on">App Store</span><span data-lang="ja">App Store</span><span data-lang="es">App Store</span>
+    </a>
+    <a href="#features" class="bs">
+      <span data-lang="en" class="on">Explore Features</span><span data-lang="ja">機能を見る</span><span data-lang="es">Ver Funciones</span>
+    </a>
+  </div>
+  <div class="hscr"><div class="sline"></div><span>SCROLL</span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="rv"><div class="sn">120+</div><div class="sl"><span data-lang="en" class="on">Mystery Locations</span><span data-lang="ja">謎のスポット</span><span data-lang="es">Lugares Misteriosos</span></div></div>
+  <div class="rv d1"><div class="sn">47</div><div class="sl"><span data-lang="en" class="on">Prefectures</span><span data-lang="ja">都道府県</span><span data-lang="es">Prefecturas</span></div></div>
+  <div class="rv d2"><div class="sn">1,200</div><div class="sl"><span data-lang="en" class="on">Years of History</span><span data-lang="ja">年の歴史</span><span data-lang="es">Años de Historia</span></div></div>
+  <div class="rv d3"><div class="sn">$4.99</div><div class="sl"><span data-lang="en" class="on">One-Time Unlock</span><span data-lang="ja">買い切り</span><span data-lang="es">Pago Único</span></div></div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="inn">
+    <div class="rv">
+      <p class="seye"><span data-lang="en" class="on">What You Get</span><span data-lang="ja">アプリの特徴</span><span data-lang="es">Lo Que Obtienes</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">For seekers of <em>unrecorded Japan</em></span><span data-lang="ja"><em>記録されない日本</em>を求める探求者へ</span><span data-lang="es">Para quienes buscan el <em>Japón desconocido</em></span></h2>
+      <p class="sbod"><span data-lang="en" class="on">Beyond temples and cherry blossoms — the Japan that whispers. Cursed burial sites, forbidden mountain rituals, ancient mysteries that survived 1,000 years of silence.</span><span data-lang="ja">寺や桜の向こう側。囁く日本がある。呪われた地、禁断の山の儀式、千年の沈黙を生き延びた謎。</span><span data-lang="es">Más allá de los templos y cerezos — el Japón que susurra. Lugares malditos, rituales en montañas prohibidas, misterios que sobrevivieron mil años de silencio.</span></p>
+    </div>
+    <div class="fg">
+      <div class="fc rv"><span class="fci">🗺️</span><div class="fct"><span data-lang="en" class="on">Dark Map</span><span data-lang="ja">ダークマップ</span><span data-lang="es">Mapa Oscuro</span></div><p class="fcb"><span data-lang="en" class="on">GPS-powered black map of Japan. Every mystery pinned across all 47 prefectures. Filter by region or eeriness level.</span><span data-lang="ja">黒一色のGPS日本地図。47都道府県の全スポットをピン表示。</span><span data-lang="es">Mapa negro de Japón con GPS. Todos los misterios en las 47 prefecturas.</span></p></div>
+      <div class="fc rv d1"><span class="fci">👻</span><div class="fct"><span data-lang="en" class="on">Eeriness Meter</span><span data-lang="ja">恐怖度メーター</span><span data-lang="es">Medidor de Escalofríos</span></div><p class="fcb"><span data-lang="en" class="on">Every location rated on Eeriness, Danger, and History. Night-visit warnings for sites that change entirely after dark.</span><span data-lang="ja">全スポットを恐怖度・危険度・歴史度で評価。夜間訪問警告付き。</span><span data-lang="es">Cada lugar calificado en Escalofríos, Peligro e Historia. Advertencias nocturnas incluidas.</span></p></div>
+      <div class="fc rv d2"><span class="fci">✅</span><div class="fct"><span data-lang="en" class="on">Survived Check-In</span><span data-lang="ja">サバイバルチェックイン</span><span data-lang="es">Check-In de Superviviente</span></div><p class="fcb"><span data-lang="en" class="on">GPS-verified check-in within 500m. Collect survived stamps across all 47 prefectures.</span><span data-lang="ja">500m以内でGPS認証チェックイン。47都道府県を制覇しよう。</span><span data-lang="es">Check-in GPS a menos de 500m. Colecciona sellos en las 47 prefecturas.</span></p></div>
+      <div class="fc rv"><span class="fci">🚃</span><div class="fct"><span data-lang="en" class="on">Station Routing</span><span data-lang="ja">駅ルーティング</span><span data-lang="es">Ruta desde Estación</span></div><p class="fcb"><span data-lang="en" class="on">Nearest station and walking time for every spot. One tap opens Apple Maps — no Japanese required.</span><span data-lang="ja">最寄り駅と徒歩時間を全スポットに表示。タップ一つでApple Mapsへ。</span><span data-lang="es">Estación más cercana y tiempo a pie para cada lugar. Un toque abre Apple Maps.</span></p></div>
+      <div class="fc rv d1"><span class="fci">📖</span><div class="fct"><span data-lang="en" class="on">Full Legends</span><span data-lang="ja">完全な伝説</span><span data-lang="es">Leyendas Completas</span></div><p class="fcb"><span data-lang="en" class="on">Curated legends written to be read on-site. Historical sources, oral traditions, documented anomalies — what guidebooks omit.</span><span data-lang="ja">現地で読むための厳選された伝説。歴史資料・口伝・怪奇現象の記録を網羅。</span><span data-lang="es">Leyendas para leer en el lugar. Fuentes históricas, tradición oral y anomalías documentadas.</span></p></div>
+      <div class="fc rv d2"><span class="fci">📡</span><div class="fct"><span data-lang="en" class="on">Offline Access</span><span data-lang="ja">オフライン対応</span><span data-lang="es">Acceso Sin Internet</span></div><p class="fcb"><span data-lang="en" class="on">All data on-device. Full access in mountain temples and remote shrines — no signal needed.</span><span data-lang="ja">全データを端末内保存。山奥の神社でもデータ通信なしでアクセス可能。</span><span data-lang="es">Todo en el dispositivo. Acceso completo en templos remotos sin señal.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="ss">
+  <div class="ss-i">
+    <div class="si rv">
+      <p class="seye"><span data-lang="en" class="on">The App</span><span data-lang="ja">アプリ画面</span><span data-lang="es">La App</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">Darkness, <em>designed</em></span><span data-lang="ja">闇を、<em>デザインする</em></span><span data-lang="es">Oscuridad, <em>diseñada</em></span></h2>
+      <p class="sbod"><span data-lang="en" class="on">Gold on black. Every screen built for nighttime use at the world's most atmospheric locations.</span><span data-lang="ja">黒地にゴールド。夜間使用のために設計された全画面。</span><span data-lang="es">Dorado sobre negro. Cada pantalla diseñada para uso nocturno.</span></p>
+    </div>
+    <div class="pr">
+      <div class="pw rv"><div class="pf"><img src="https://i.imgur.com/d2zIAfe.jpeg" alt="Dark map of Japan with mystery markers"></div><div class="pc"><span data-lang="en" class="on">Map</span><span data-lang="ja">マップ</span><span data-lang="es">Mapa</span></div></div>
+      <div class="pw rv d1"><div class="pf"><img src="https://i.imgur.com/zdDAfBg.jpeg" alt="47 prefectures explore list"></div><div class="pc"><span data-lang="en" class="on">Explore</span><span data-lang="ja">探索</span><span data-lang="es">Explorar</span></div></div>
+      <div class="pw rv d2"><div class="pf"><img src="https://i.imgur.com/6NbmL7G.jpeg" alt="Tokyo spot list"></div><div class="pc"><span data-lang="en" class="on">Spots</span><span data-lang="ja">スポット</span><span data-lang="es">Lugares</span></div></div>
+      <div class="pw rv d3"><div class="pf"><img src="https://i.imgur.com/T6rEvY2.jpeg" alt="Spot detail with eeriness meter"></div><div class="pc"><span data-lang="en" class="on">Legend</span><span data-lang="ja">伝説</span><span data-lang="es">Leyenda</span></div></div>
+      <div class="pw rv d3"><div class="pf"><img src="https://i.imgur.com/q4irLJE.jpeg" alt="Survived collection screen"></div><div class="pc"><span data-lang="en" class="on">Survived</span><span data-lang="ja">サバイバル</span><span data-lang="es">Sobreviví</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EERINESS -->
+<section class="ee">
+  <div class="eei">
+    <div class="rv">
+      <p class="seye"><span data-lang="en" class="on">The Rating System</span><span data-lang="ja">評価システム</span><span data-lang="es">Sistema de Calificación</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">Know before <em>you go</em></span><span data-lang="ja">行く前に<em>知る</em></span><span data-lang="es">Sabe antes <em>de ir</em></span></h2>
+      <p class="sbod"><span data-lang="en" class="on">Three axes. Eeriness reflects documented paranormal reports and historical tragedy. Danger reflects physical or legal risk. History reflects the depth of the legend. Night warnings flag sites that transform entirely after dark.</span><span data-lang="ja">三軸評価。恐怖度は記録された怪奇現象と歴史的悲劇を反映。危険度は物理・法的リスク。歴史度は伝説の深さ。夜間警告で変貌するスポットをお知らせ。</span><span data-lang="es">Tres ejes. Escalofríos refleja reportes paranormales y tragedia histórica. Peligro refleja riesgo físico o legal. Historia mide la profundidad de la leyenda.</span></p>
+    </div>
+    <div class="md rv d1" id="meter">
+      <div class="ms">MASAKADO'S HEAD MOUND</div>
+      <div class="mj">将門の首塚 · Tokyo · 940 AD</div>
+      <div class="mr"><div class="ml">👻 Eeriness</div><div class="mt"><div class="mb be" data-w="96%"></div></div><div class="mv">4.8</div></div>
+      <div class="mr"><div class="ml">⚠️ Danger</div><div class="mt"><div class="mb bd" data-w="20%"></div></div><div class="mv">1.0</div></div>
+      <div class="mr"><div class="ml">🏛️ History</div><div class="mt"><div class="mb bh" data-w="100%"></div></div><div class="mv">5.0</div></div>
+      <div class="nb">🌙 <span data-lang="en" class="on">Night Visit Warning</span><span data-lang="ja">夜間訪問注意</span><span data-lang="es">Advertencia Nocturna</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTS -->
+<section style="background:var(--bg2)">
+  <div class="inn">
+    <div class="rv">
+      <p class="seye"><span data-lang="en" class="on">Featured Locations</span><span data-lang="ja">注目スポット</span><span data-lang="es">Lugares Destacados</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">Where will you <em>dare</em> to go?</span><span data-lang="ja">あなたはどこへ<em>行く勇気</em>がある？</span><span data-lang="es">¿Dónde <em>te atreverás</em> a ir?</span></h2>
+    </div>
+    <div class="sg">
+      <div class="sc rv"><div class="scp">Tokyo · 東京</div><div class="scn">Masakado's Head Mound</div><div class="scj">将門の首塚</div><div class="scd">A cursed warlord's burial site haunting Tokyo's financial district for over 1,000 years.</div><div class="scm">👻 4.8 &nbsp;⚠️ 1.0 &nbsp;🏛️ 5.0</div></div>
+      <div class="sc rv d1"><div class="scp">Kyoto · 京都</div><div class="scn">Kifune Shrine</div><div class="scj">貴船神社</div><div class="scd">Origin of Japan's most feared curse ritual — performed at 2 AM by women in white.</div><div class="scm">👻 5.0 &nbsp;⚠️ 2.0 &nbsp;🏛️ 5.0</div></div>
+      <div class="sc rv d2"><div class="scp">Aomori · 青森</div><div class="scn">Osorezan — Mt. Fear</div><div class="scj">恐山</div><div class="scd">Japan's most sacred gateway to the dead. Blind itako mediums summon the deceased each July.</div><div class="scm">👻 5.0 &nbsp;⚠️ 2.0 &nbsp;🏛️ 5.0</div></div>
+      <div class="sc rv"><div class="scp">Yamanashi · 山梨</div><div class="scn">Aokigahara Forest</div><div class="scj">青木ヶ原樹海</div><div class="scd">A volcanic forest so dense that compasses fail. The government no longer publishes the annual count.</div><div class="scm">👻 5.0 &nbsp;⚠️ 4.0 &nbsp;🏛️ 4.5</div><div class="slk">🔒</div></div>
+      <div class="sc rv d1"><div class="scp">Okinawa · 沖縄</div><div class="scn">Yonaguni Monument</div><div class="scj">与那国島海底地形</div><div class="scd">A submerged stone formation 25m below sea — man-made or natural? Geologists still disagree.</div><div class="scm">👻 4.0 &nbsp;⚠️ 2.5 &nbsp;🏛️ 5.0</div><div class="slk">🔒</div></div>
+      <div class="sc rv d2" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-height:170px"><div style="font-family:var(--fd);font-size:38px;color:var(--gdim)">+115</div><div style="font-family:var(--fd);font-size:9px;letter-spacing:3px;color:var(--g)"><span data-lang="en" class="on">MORE LOCATIONS</span><span data-lang="ja">さらなるスポット</span><span data-lang="es">LUGARES MÁS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="ps" id="download">
+  <div class="pi">
+    <div class="rv">
+      <div class="dv"><span>✦</span></div>
+      <p class="seye"><span data-lang="en" class="on">Unlock Everything</span><span data-lang="ja">すべてを解放</span><span data-lang="es">Desbloquea Todo</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">One price. <em>Forever.</em></span><span data-lang="ja">一度きりの購入。<em>永久に。</em></span><span data-lang="es">Un precio. <em>Para siempre.</em></span></h2>
+    </div>
+    <div class="pc2 rv">
+      <div class="pbg"><span data-lang="en" class="on">Premium · One Time</span><span data-lang="ja">プレミアム・買い切り</span><span data-lang="es">Premium · Pago Único</span></div>
+      <div class="pn">$4.99</div>
+      <div class="pno"><span data-lang="en" class="on">No subscription. No ads. Yours forever.</span><span data-lang="ja">サブスクなし。広告なし。永久に。</span><span data-lang="es">Sin suscripción. Sin anuncios. Tuyo para siempre.</span></div>
+      <ul class="pf2">
+        <li><span data-lang="en" class="on">All 120+ mystery locations across 47 prefectures</span><span data-lang="ja">47都道府県・120以上のスポット全解放</span><span data-lang="es">Los 120+ lugares en las 47 prefecturas</span></li>
+        <li><span data-lang="en" class="on">Full legends, historical sources & anomaly reports</span><span data-lang="ja">完全な伝説・歴史資料・怪奇現象の記録</span><span data-lang="es">Leyendas completas, fuentes históricas e informes</span></li>
+        <li><span data-lang="en" class="on">GPS Survived check-in for every location</span><span data-lang="ja">全スポットのGPSサバイバルチェックイン</span><span data-lang="es">Check-in GPS de superviviente en cada lugar</span></li>
+        <li><span data-lang="en" class="on">Complete dark map — all 47 prefectures</span><span data-lang="ja">完全ダークマップ・全47都道府県</span><span data-lang="es">Mapa oscuro completo — las 47 prefecturas</span></li>
+        <li><span data-lang="en" class="on">No ads, ever</span><span data-lang="ja">広告なし、永遠に</span><span data-lang="es">Sin anuncios, nunca</span></li>
+      </ul>
+      <a href="https://apps.apple.com/app/id6761999617" class="bp" style="width:100%;justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span data-lang="en" class="on">Download on App Store</span><span data-lang="ja">App Storeでダウンロード</span><span data-lang="es">Descargar en App Store</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- UNRECORDED JAPAN -->
+<section class="uj">
+  <div class="uji">
+    <div class="ujv rv">
+      <div class="ujp">▶</div>
+      <div class="ujc">UNRECORDED JAPAN</div>
+      <div class="ujt">日本の隠された歴史<br>Japan's Hidden History</div>
+    </div>
+    <div class="rv d1">
+      <p class="seye"><span data-lang="en" class="on">The YouTube Channel</span><span data-lang="ja">YouTubeチャンネル</span><span data-lang="es">El Canal de YouTube</span></p>
+      <h2 class="stit"><span data-lang="en" class="on">Go deeper with <em>Unrecorded Japan</em></span><span data-lang="ja"><em>Unrecorded Japan</em>でさらに深く</span><span data-lang="es">Ve más profundo con <em>Unrecorded Japan</em></span></h2>
+      <p class="sbod" style="margin-bottom:28px"><span data-lang="en" class="on">The companion channel behind this app. Deep dives into Katakamuna, the Yonaguni monument, the onmyoji shadow government, and Japan's sealed archaeology. New episodes every week.</span><span data-lang="ja">このアプリのコンパニオンチャンネル。カタカムナ・与那国・陰陽師の影の政府・封印された遺跡を深掘り。毎週新エピソード。</span><span data-lang="es">El canal compañero de esta app. Katakamuna, el monumento de Yonaguni, el gobierno en la sombra de los onmyoji. Nuevos episodios semanales.</span></p>
+      <a href="https://youtube.com/@UnrecordedJapan" target="_blank" class="bs">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        <span data-lang="en" class="on">Watch on YouTube</span><span data-lang="ja">YouTubeで見る</span><span data-lang="es">Ver en YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">MYSTIC JAPAN</div>
+  <div class="fj2">神秘の日本</div>
+  <nav class="fn">
+    <a href="#"><span data-lang="en" class="on">Privacy Policy</span><span data-lang="ja">プライバシーポリシー</span><span data-lang="es">Privacidad</span></a>
+    <a href="#"><span data-lang="en" class="on">Terms</span><span data-lang="ja">利用規約</span><span data-lang="es">Términos</span></a>
+    <a href="https://youtube.com/@UnrecordedJapan" target="_blank">Unrecorded Japan</a>
+    <a href="/cdn-cgi/l/email-protection#9bfae8efe9faf7f6f2e9e9f4e9e8efeefff2f4dbfcf6faf2f7b5f8f4f6"><span data-lang="en" class="on">Contact</span><span data-lang="ja">お問い合わせ</span><span data-lang="es">Contacto</span></a>
+  </nav>
+  <p class="fc2">© 2026 Astral Mirror Studio · Taichi Inoue · Madrid, Spain</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Fallback: reveal all after 2s in case IntersectionObserver fails
+
+</script><script>
+function setLang(l){
+  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('on',e.dataset.lang===l));
+  document.querySelectorAll('.lb button').forEach(b=>{
+    const t=b.textContent.trim();
+    b.classList.toggle('a',t===l.toUpperCase()||(l==='ja'&&t==='日本語'));
+  });
+}
+document.querySelectorAll('[data-lang="en"]').forEach(e=>e.classList.add('on'));
+
+
+
+
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=
